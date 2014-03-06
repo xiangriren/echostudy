@@ -1,0 +1,136 @@
+{% extends 'TopxiaWebBundle::bootstrap-modal-layout.html.twig' %}
+
+{% set modal_size = '' %}
+
+{% block title %}购买课程{% endblock %}
+{% block body %}
+  
+  {% if app.request.query.get('preview') %}
+    <div class="alert alert-info">该课时非免费课时，不能预览，需购买后才能查看。</div>
+  {% endif %}
+  <form id="course-buy-form" class="form-horizontal" method="post" action="{{ path('course_order_pay') }}">
+
+    <div class="form-group">
+      <div class="col-md-3 control-label">课程名称</div>
+      <div class="col-md-9 controls">
+      	<span class="control-text text-muted">《{{ course.title }}》</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-3 control-label">价格</div>
+      <div class="col-md-9 controls">
+      	<span class="control-text"><strong class="money">{{ course.price }}</strong>
+      		<span class="text-muted">元</span>
+      	</span>
+      </div>
+    </div>
+
+    {% if course.price > 0 %}
+      {% if payments %}
+        <div class="form-group">
+          <div class="col-md-3 control-label">选择支付方式</div>
+          <div class="col-md-9 controls">
+            {% for payment, options in payments %}
+            	<input type="radio" checked="checked" />
+            	<img src="{{ asset('assets/img/order/alipay.gif') }}" />
+            {% endfor %}
+          </div>
+        </div>
+
+        {% if payments.alipay.type|default(null) == 'dualfun' %}
+        <div class="row">
+          <div class="col-md-12">
+            <div class="alert alert-info">
+            <h4>付款提示</h4>
+            支付宝支持“担保交易”和“立即到帐交易”两种交易方式。<br>推荐使用<strong>“立即到帐交易”</strong>。“担保交易”需要人工确认发货、确认收货后才能学习课程，<strong>会产生较大延迟</strong>。</div>
+          </div>
+        </div>
+        {% endif %}
+      {% else %}
+        <div class="alert alert-info">{{ setting('payment.disabled_message')|default('尚未开启支付模块，无法购买课程。')|raw }}</div>
+      {% endif %}
+    {% else %}
+      <div class="row">
+        <div class="col-md-12">
+          <div class="alert alert-info">此课程为免费课程，无需购买，可直接加入学习。</div>
+        </div>
+      </div>
+    {% endif %}
+    <input type="hidden" name="courseId" value="{{ course.id }}" />
+    <input type="hidden" name="payment" value="alipay" />
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('site') }}">
+
+{% if courseSetting.buy_fill_userinfo|default(false) %}
+    <br><br>
+    <div class="nav nav-tabs">
+    <div class="help-block">温情提示：如果您的资料有变更，请在此修改，以便更好的为您服务！</div>
+    </div><br>
+
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="truename">真实姓名</label>
+      <div class="col-md-6 controls">
+        {% if user.approvalStatus == 'approved' %}
+          <span class="control-text"><strong>{{ user.truename }}</strong></span>
+        {% elseif user.approvalStatus == 'approving' %}
+          <span class="control-text"><strong>{{ user.truename }} </strong><small class="text-info"> 实名认证正在审核中</small></span>
+        {% else %}
+          <input class="form-control" id="truename" type="text" name="truename" value="{{ user.truename }}">
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="mobile">手机</label>
+      <div class="col-md-6 controls">
+        <input class="form-control" id="mobile" type="text" name="mobile" value="{{ user.mobile }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="qq">QQ</label>
+      <div class="col-md-6 controls">
+        <input class="form-control" id="qq" type="text" name="qq" value="{{ user.qq }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-3 control-label">所在公司</div>
+      <div class="col-md-6 controls">
+        <input class="form-control" id="company" type="text" name="company" value="{{ user.company }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-3 control-label">职位</div>
+      <div class="col-md-6 controls">
+        <input class="form-control" id="job" type="text" name="job" value="{{ user.job }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-3 control-label">备注</div>
+      <div class="col-md-6 controls">
+        <textarea class="form-control" id="note" name="note"></textarea>
+      </div>
+    </div>
+{% endif %}
+
+
+  </form>
+{% endblock %}
+
+{% block footer %}
+  {% if course.price > 0 %}
+    {% if payments %}
+      <button class="btn btn-primary" type="submit" data-toggle="form-submit" data-target="#course-buy-form">去支付</button>
+    {% endif %}
+  {% else %}
+    <button class="btn btn-primary" type="submit" data-toggle="form-submit" data-target="#course-buy-form">加入学习</button>
+  {% endif %}
+
+  <script>
+    app.load('course/buy-modal');
+  </script>
+{% endblock %}

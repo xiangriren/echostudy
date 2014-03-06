@@ -1,0 +1,69 @@
+{% extends 'TopxiaWebBundle:CourseManage:layout.html.twig' %}
+
+{% block title %}基本信息 - {{ parent() }}{% endblock %}
+
+{% set side_nav = 'base' %}
+{% set script_controller = 'course-manage/base' %}
+{% 
+	set script_arguments = {
+	  categoryUrl: path('category_all'),
+	  tagMatchUrl: path('tag_match'),
+	  locationUrl: path('location_all')
+	} 
+%}
+{% block main %}
+
+<div class="panel panel-default panel-col">
+	<div class="panel-heading">基本信息</div>
+	<div class="panel-body">
+		<form class="form-horizontal" id="course-form" method="post">
+
+		  {{ web_macro.flash_messages() }}
+
+			<div class="form-group">
+				<div class="col-md-2 control-label">{{ form_label(form.title, '标题') }}</div>
+				<div class="col-md-8 controls">{{ form_widget(form.title, {attr:{class:'form-control'}}) }}</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-md-2 control-label">{{ form_label(form.subtitle, '副标题') }}</div>
+				<div class="col-md-8 controls">{{ form_widget(form.subtitle, {attr:{class:'form-control'}}) }}</div>
+			</div>
+
+			<div class="form-group">
+			  <div class="col-md-2 control-label">{{ form_label(form.tags, '标签') }}</div>
+			  <div class="col-md-8 controls"> {{ form_widget(form.tags, {attr:{class:'width-full'}}) }}</div>
+			</div>
+			
+			<div class="form-group">
+			  <div class="col-md-2 control-label">{{ form_label(form.expiryDay, '学员有效期') }}</div>
+			  <div class="col-md-8 controls">
+			    {{ form_widget(form.expiryDay, {attr:{class:'form-control width-input width-input-large'}}) }} 天
+			    <div class="help-block">设置该值后，学员只能在有效期内学习课程、发表话题、提问、笔记等，超过有效期后学员只能浏览课时目录及讨论区。该值为0，则不做此限制。</div>
+			  </div>
+			</div>
+
+			<div class="form-group">
+			  <div class="col-md-2 control-label">{{ form_label(form.categoryId, '分类') }}</div>
+			  <div class="col-md-8 controls">
+			    {{ form_widget(form.categoryId, {attr:{class:'form-control width-input width-input-large'}}) }}
+			  </div>
+			</div>
+
+		  <div class="form-group">
+		    <div class="col-md-offset-2 col-md-8 controls">
+		    	{{ form_rest(form) }}
+		    	<button class="btn btn-fat btn-primary" id="course-create-btn" type="submit">保存</button>
+		    </div>
+		  </div>
+
+		  <input type="hidden" name="_csrf_token" value="{{ csrf_token('site') }}">
+
+		</form>
+	</div>
+</div>
+
+{% endblock %}
+
+
+

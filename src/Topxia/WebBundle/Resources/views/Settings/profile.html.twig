@@ -1,0 +1,127 @@
+{% extends 'TopxiaWebBundle:Settings:layout.html.twig' %}
+
+{% block title %}基础信息 - {{ parent() }}{% endblock %}
+
+{% set script_controller = 'settings/profile' %}
+{% set side_nav = 'profile' %}
+
+{% block main %}
+
+  {% embed "TopxiaWebBundle:Bootstrap:panel.html.twig" with {class:'panel-col'} %}
+    {% block heading %}基础信息{% endblock %}
+    {% block body %}
+      <form id="user-profile-form" class="form-horizontal" method="post">
+        {{ web_macro.flash_messages() }}
+
+          <div class="form-group">
+          <label class="col-md-2 control-label" >昵称</label>
+            <div class="col-md-7 controls">
+            <div class="control-text">
+                {{app.user.nickname}} {% if setting('user_partner.nickname_enabled') %} <a href="{{ path('setting_nickname') }}">修改</a> {% endif %}</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            {{ form_label(form.truename, '姓名', {label_attr:{class:'col-md-2 control-label'}}) }}
+            <div class="col-md-7 controls">
+
+              {% if app.user.approvalStatus == 'approved' %}
+                {{ form_widget(form.truename, {attr:{class:'form-control', readonly:'readonly' }}) }}
+              {% else %}
+                {{ form_widget(form.truename, {attr:{class:'form-control' }}) }}
+              {% endif %}
+
+            </div>
+          </div>
+
+          <div class="help-block approval">
+            <label class="col-md-2 control-label" ></label>
+              {% if app.user.approvalStatus == 'approving' %}
+                <p class="text-primary" > 
+                  正在实名认证中，管理员会尽快答复您。
+                </p>
+              {% elseif  app.user.approvalStatus == 'approved' %}
+                <p class="text-success" >
+                  恭喜您，已通过实名认证！
+                </p>
+              {% elseif  app.user.approvalStatus == 'unapprove' %}
+                <p class="text-warning" > 
+                  您尚未实名认证，<strong><a href="{{ path('setting_approval_submit') }}">点此认证</a>。
+                  </strong>
+                </p>
+              {% elseif app.user.approvalStatus == 'approve_fail' %}
+                 <p class="text-danger" > 
+                  实名认证审核尚未通过，请参照通知中的信息，修改后重新<strong><a href="{{ path('setting_approval_submit') }}">认证。</a>
+                  </strong>
+                 </p>
+              {% endif %}
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-2 control-label">{{ form_label(form.gender, '性别') }}</div>
+            <div class="col-md-7 controls radios">{{ form_widget(form.gender) }}</div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-2 control-label">{{ form_label(form.company, '公司') }}</div>
+            <div class="col-md-7 controls">{{ form_widget(form.company, {attr:{class:'form-control'}}) }}</div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-2 control-label"> {{ form_label(form.job, '职业') }} </div>
+            <div class="col-md-7 controls"> {{ form_widget(form.job, {attr:{class:'form-control'}}) }} </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-2 control-label"> {{ form_label(form.title, '头衔') }} </div>
+            <div class="col-md-7 controls"> {{ form_widget(form.title, {attr:{class:'form-control'}}) }} </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-2 control-label"> {{ form_label(form.signature, '个人签名') }} </div>
+            <div class="col-md-7 controls"> {{ form_widget(form.signature, {attr:{class:'form-control'}}) }} </div>
+          </div>          
+
+          <div class="form-group">
+            <div class="col-md-2 control-label"> {{ form_label(form.about, '自我介绍') }} </div>
+            <div class="col-md-7 controls"> {{ form_widget(form.about, {attr:{class:'form-control'}}) }} </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-2 control-label"> {{ form_label(form.site, '个人主页') }} </div>
+            <div class="col-md-7 controls"> {{ form_widget(form.site, {attr:{class:'form-control'}}) }} </div>
+          </div>   
+
+          <div class="form-group">
+            <div class="col-md-2 control-label"> {{ form_label(form.weibo, '微博') }} </div>
+            <div class="col-md-7 controls"> {{ form_widget(form.weibo, {attr:{class:'form-control'}}) }} </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-2 control-label"> {{ form_label(form.weixin, '微信') }} </div>
+            <div class="col-md-7 controls"> {{ form_widget(form.weixin, {attr:{class:'form-control'}}) }} </div>
+          </div>         
+
+          <div class="form-group">
+            <div class="col-md-2 control-label"> {{ form_label(form.qq, 'QQ') }} </div>
+            <div class="col-md-7 controls"> {{ form_widget(form.qq, {attr:{class:'form-control'}}) }} </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-2 control-label"> {{ form_label(form.mobile, '手机') }} </div>
+            <div class="col-md-7 controls"> {{ form_widget(form.mobile, {attr:{class:'form-control'}}) }} </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-7 col-md-offset-2">
+              {{ form_rest(form) }}
+              <button type="submit" class="btn btn-primary">保存</button>
+            </div>
+          </div>
+
+          <input type="hidden" name="_csrf_token" value="{{ csrf_token('site') }}">
+      </form>
+
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

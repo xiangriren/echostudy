@@ -1,0 +1,54 @@
+{% extends 'TopxiaWebBundle::layout.html.twig' %}
+
+{% block title %}课程管理 - {{ parent() }}{% endblock %}
+
+{% block content %}
+
+  {{ render(controller('TopxiaWebBundle:Course:header', {course:course, manage: true})) }}
+
+<div class="row">
+  <div class="col-md-3">
+    {% block side %}
+      {% set side_nav = side_nav|default(null) %}
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="list-group-panel">
+            <div class="list-group-heading">课程信息</div>
+            <div class="list-group">
+              <a class="list-group-item {% if side_nav == 'base' %}active{% endif %}" href="{{ path('course_manage_base', {id:course.id}) }}">基本信息</a>
+              <a class="list-group-item {% if side_nav == 'detail' %}active{% endif %}" href="{{ path('course_manage_detail', {id:course.id}) }}">详细信息</a>
+              <a class="list-group-item {% if side_nav == 'picture' %}active{% endif %}" href="{{ path('course_manage_picture', {id:course.id}) }}">课程图片</a>
+              <a class="list-group-item {% if side_nav == 'lesson' %}active{% endif %}" href="{{ path('course_manage_lesson', {id:course.id}) }}">课时管理</a>
+              <a class="list-group-item {% if side_nav == 'files' %}active{% endif %}" href="{{ path('course_manage_files', {id:course.id}) }}">文件管理</a>
+            </div>
+          </div><!-- /list-group-block -->
+
+          <div class="list-group-panel">
+            <div class="list-group-heading">课程设置</div>
+            <div class="list-group">
+              <a class="list-group-item {% if side_nav == 'price' %}active{% endif %}" href="{{ path('course_manage_price', {id:course.id}) }}">价格设置</a>
+              <a class="list-group-item {% if side_nav == 'teachers' %}active{% endif %}" href="{{ path('course_manage_teachers', {id:course.id}) }}">教师设置</a>
+              <a class="list-group-item {% if side_nav == 'students' %}active{% endif %}" href="{{ path('course_manage_students', {id:course.id}) }}">学员管理</a>
+            </div>
+          </div>
+
+          <div class="list-group-panel">
+            <div class="list-group-heading">题库</div>
+            <div class="list-group">
+              <a class="list-group-item {% if side_nav == 'question' %}active{% endif %}" href="{{ path('course_manage_question', {courseId:course.id}) }}">题目管理</a>
+              <a class="list-group-item {% if side_nav == 'question_category' %}active{% endif %}" href="{{ path('course_manage_question_category', {courseId:course.id}) }}">题目类别管理</a>
+              <a class="list-group-item {% if side_nav == 'testpaper' %}active{% endif %}" href="{{ path('course_manage_testpaper', {courseId:course.id}) }}">试卷管理</a>
+              <a class="list-group-item {% if side_nav == 'testCheck' %}active{% endif %}" href="{{ path('course_manage_test_check', {id:course.id, status:'reviewing'}) }}">试卷批阅</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    {% endblock %}
+  </div>
+  <div class="col-md-9">
+    {% block main %}{% endblock %}
+  </div>
+</div>
+{% endblock %}

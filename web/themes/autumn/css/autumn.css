@@ -1,0 +1,293 @@
+body {
+    background-color: #f1f2f6;
+}
+
+a {
+    color: #333;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #83BB36
+}
+
+.site-navbar {
+    background-color: #333;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    border: 0px;
+}
+
+.site-navbar .navbar-header a.navbar-brand {
+    font-size: 18px;
+    color: #fff;
+    padding: 17px 15px;
+}
+
+.site-navbar .navbar-collapse .navbar-nav > li > a {
+    font-size: 14px;
+    color: #fff;
+    padding: 17px 15px;
+}
+
+.nav-list > li.active > a {
+    background-color: #7cb132;  
+    color: #333;
+}
+
+.site-navbar .navbar-nav > li > a:hover {
+    background-color: #7cb132;
+    color: #fff;
+}
+
+.autumn-grids {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-right: -25px;
+    letter-spacing:-4px;
+    zoom:1;
+}
+
+.autumn-grid {
+    display: inline-block;
+    *display:inline;
+    *zoom:1;
+    vertical-align:top;
+    letter-spacing:0;
+    width: 277px;
+    margin: 0px 10px 17px 0;
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    padding: 0px;
+}
+
+.autumn-grid:hover {
+    border-top-color: #f78a4b;
+}
+
+@media (min-width: 1200px) {
+    .autumn-grid {
+        width: 277px;
+        margin: 0px 10px 17px 0;
+    }
+}
+
+@media (min-width: 980px ) and ( max-width: 1199px ) {
+    .autumn-grid {
+        width: 299px;
+        margin: 0px 20px 20px 0;
+    }
+}
+
+@media (min-width: 768px ) and ( max-width: 979px ) {
+    .autumn-grid {
+        width: 349px;
+        margin: 0px 20px 20px 0;
+    }
+}
+
+@media ( max-width: 767px ) {
+    .autumn-grids {
+        margin-right: 0;
+    }
+
+    .autumn-grid {
+        width: 100%;
+        margin: 0px 20px 20px 0;
+    }
+}
+
+.autumn-course-grid .course-name {
+    margin: 10px 20px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.autumn-course-grid .course-name a {
+    height: 20px;
+    line-height: 20px;
+    font-size: 16px;
+}
+
+.autumn-course-grid .course-name a:hover {
+    color: #f78a4b;
+}
+
+.autumn-course-grid .course-picture {
+    margin: 20px 20px 10px;
+    display: block;
+}
+
+.autumn-course-grid .course-picture img {
+    max-width: 100%;
+}
+
+.autumn-course-grid .course-about {
+    margin: 10px 20px 15px;
+    font-size: 12px;
+    height: 32px;
+    color: #999;
+    overflow: hidden;
+}
+
+.autumn-course-grid .course-metas {
+    margin:10px 20px 20px;
+}
+
+.autumn-course-grid .price {
+    float: right;
+    color: #f78a4b;
+    font-weight: bold;
+}
+
+
+.autumn-course-list {
+
+}
+
+.autumn-course-list .media {
+    border-bottom-color: #ddd;
+}
+
+.autumn-course-list .media-heading {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.autumn-course-list .media-object {
+    width: 200px;
+}
+
+.autumn-course-list .course-about {
+    font-size: 13px;
+    color: #777;
+}
+
+.autumn-course-list .price {
+    float: right;
+    color: #f78a4b;
+    font-weight: bold;
+}
+
+
+.panel-autumn {
+    -webkit-box-shadow: 0 0 0;
+    box-shadow: 0 0 0;    
+    background: transparent;
+}
+
+.panel-autumn .panel-heading {
+    padding: 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.panel-autumn .panel-title {
+    display: inline-block;
+    *display: inline;
+    font-size: 16px;
+    padding: 10px 0;
+}
+
+.panel-autumn .panel-heading-important .panel-title {
+    margin: 0;
+    padding: 12px 10px 10px;
+    font-size: 20px;
+}
+
+.panel-autumn .panel-body {
+    padding: 15px 0 0 0;
+}
+
+.panel-autumn-primary .panel-heading {
+    border-bottom-color: #7CB132;
+}
+
+.panel-autumn-primary .panel-title {
+    color: #7CB132;
+}
+
+.panel-autumn-primary .panel-title small {
+    color: #7CB132;
+}
+
+.panel-autumn-primary .panel-heading-important .panel-title {
+    background: #7CB132;
+    color: #fff;
+}
+
+.panel-autumn-primary .panel-heading-important .panel-title small {
+    color: #fff;
+}
+
+.panel-autumn-default .panel-heading {
+    border-bottom-color: #f78a4b;
+}
+
+.panel-autumn-default .panel-title {
+    color: #f78a4b;
+}
+
+.panel-autumn-default .panel-title small {
+    color: #f78a4b;
+}
+
+.panel-autumn-default .panel-heading-important .panel-title {
+    background: #f78a4b;
+    color: #fff;
+}
+
+.panel-autumn-default .panel-heading-important .panel-title small {
+    color: #fff;
+}
+
+.media-list-rank {
+
+}
+
+.media-list-rank .media-object {
+    width: 80px;
+    height: 60px;
+}
+
+.media-list-rank .media-body {
+    font-size: 12px;
+    color: #777;
+}
+
+.media-list-rank .media-heading {
+    font-size: 14px;
+}
+
+.teacher-media {
+    padding: 15px;
+}
+
+.teacher-media .media-object {
+    width: 100px;
+}
+
+.teacher-media .teacher-title {
+    color: #666;
+    font-size: 13px;
+}
+
+.footer-autumn {
+    background-color: #333;
+    color: #666;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.footer-autumn ,
+.footer-autumn a {
+    color: #999;
+}
+
+.footer-autumn a:hover {
+    color: #eee;
+}
+
+.footer-autumn .footer-links {
+    margin-bottom: 10px;
+}

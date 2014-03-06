@@ -1,0 +1,622 @@
+admin:
+    pattern:  /
+    defaults: { _controller: TopxiaAdminBundle:Default:index }
+
+admin_popular_courses:
+    pattern:  /popular_courses
+    defaults: { _controller: TopxiaAdminBundle:Default:popularCourses }
+
+admin_question_remind_teachers:
+    pattern: /course/{courseId}/question/{questionId}/remindTeachers
+    defaults: { _controller: TopxiaAdminBundle:Default:questionRemindTeachers }
+    methods:  [POST]
+
+admin_dashboard:
+    pattern:  dashboard
+    defaults: { _controller: TopxiaAdminBundle:Default:dashboard }
+
+admin_content:
+    pattern:  /content
+    defaults: { _controller: TopxiaAdminBundle:Content:index }
+
+admin_content_create:
+    pattern:  /content/create/{type}
+    defaults: { _controller: TopxiaAdminBundle:Content:create }
+
+admin_content_edit:
+    pattern:  /content/{id}/edit
+    defaults: { _controller: TopxiaAdminBundle:Content:edit }
+
+admin_content_publish:
+    pattern:  /content/{id}/publish
+    defaults: { _controller: TopxiaAdminBundle:Content:publish }
+    methods:  [POST]
+
+admin_content_trash:
+    pattern:  /content/{id}/trash
+    defaults: { _controller: TopxiaAdminBundle:Content:trash }
+    methods:  [POST]
+
+admin_content_delete:
+    pattern:  /content/{id}/delete
+    defaults: { _controller: TopxiaAdminBundle:Content:delete }
+    methods:  [POST]
+
+admin_content_alias_check:
+    pattern:  /content/alias/check
+    defaults: { _controller: TopxiaAdminBundle:Content:aliasCheck }
+
+admin_user_logs:
+    pattern:  /user/logs
+    defaults: { _controller: TopxiaAdminBundle:User:logs }
+
+admin_block:
+    pattern:  /block
+    defaults: { _controller: TopxiaAdminBundle:Block:index }
+
+admin_block_create:
+    pattern:  /block/create
+    defaults: { _controller: TopxiaAdminBundle:Block:create }
+
+admin_block_delete:
+    pattern:  /block/{id}/delete
+    defaults: { _controller: TopxiaAdminBundle:Block:delete }
+    methods:  [POST]
+
+admin_block_code_check_forcreate:
+    pattern:  /block/code/check/forcreate
+    defaults: { _controller: TopxiaAdminBundle:Block:checkBlockCodeForCreate }
+
+admin_block_code_check_foredit:
+    pattern:  /block/code/{id}/check/foredit
+    defaults: { _controller: TopxiaAdminBundle:Block:checkBlockCodeForEdit }
+
+admin_block_update:
+    pattern:  /block/{block}/update
+    defaults: { _controller: TopxiaAdminBundle:Block:update }
+
+admin_block_edit:
+    pattern:  /block/{block}/edit
+    defaults: { _controller: TopxiaAdminBundle:Block:edit }
+
+admin_blockhistory_preview:
+    pattern:  /blockhistory/{id}/preview
+    defaults: { _controller: TopxiaAdminBundle:Block:preview }
+
+admin_tag:
+    pattern:  /tag
+    defaults: { _controller: TopxiaAdminBundle:Tag:index }
+
+admin_tag_create:
+    pattern:  /tag/create
+    defaults: { _controller: TopxiaAdminBundle:Tag:create }
+
+admin_tag_checkname:
+    pattern:  /tag/checkname
+    defaults: { _controller: TopxiaAdminBundle:Tag:checkName}
+
+admin_tag_update:
+    pattern:  /tag/{id}/update
+    defaults: { _controller: TopxiaAdminBundle:Tag:update }
+
+admin_tag_delete:
+    pattern:  /tag/{id}/delete
+    defaults: { _controller: TopxiaAdminBundle:Tag:delete }
+    methods:  [POST]
+
+admin_user:
+    pattern:  /user
+    defaults: { _controller: TopxiaAdminBundle:User:index }
+
+admin_user_create:
+    pattern:  /user/create
+    defaults: { _controller: TopxiaAdminBundle:User:create }
+
+admin_user_create_email_check:
+    pattern:  /user/create/email/check
+    defaults: { _controller: TopxiaAdminBundle:User:emailCheck }
+
+admin_user_create_nickname_check:
+    pattern:  /user/create/nickname/check
+    defaults: { _controller: TopxiaAdminBundle:User:nicknameCheck }
+
+admin_user_show:
+    pattern:  /user/{id}
+    defaults: { _controller: TopxiaAdminBundle:User:show }
+
+admin_user_edit:
+    pattern:  /user/{id}/edit
+    defaults: { _controller: TopxiaAdminBundle:User:edit }
+
+admin_user_lock:
+    pattern:  /user/{id}/lock
+    defaults: { _controller: TopxiaAdminBundle:User:lock }
+    methods:  [POST]
+
+admin_user_unlock:
+    pattern:  /user/{id}/unlock
+    defaults: { _controller: TopxiaAdminBundle:User:unlock }
+    methods:  [POST]
+
+admin_user_roles:
+    pattern:  /user/{id}/roles
+    defaults: { _controller: TopxiaAdminBundle:User:roles }
+
+admin_teacher:
+    pattern:  /teacher
+    defaults: { _controller: TopxiaAdminBundle:Teacher:index }
+
+admin_teacher_promote:
+    pattern:  /teacher/{id}/promote
+    defaults: { _controller: TopxiaAdminBundle:Teacher:promote }
+    methods:  [POST]
+
+admin_teacher_promote_cancel:
+    pattern:  /teacher/{id}/promote/cancel
+    defaults: { _controller: TopxiaAdminBundle:Teacher:promoteCancel }
+    methods:  [POST]
+
+admin_user_change_password:
+    pattern:  /user/{userId}/change/password
+    defaults: { _controller: TopxiaAdminBundle:User:changePassword }
+
+admin_user_send_passwordreset_email:
+    pattern:  /user/{id}/send_passwordreset_email
+    defaults: { _controller: TopxiaAdminBundle:User:sendPasswordResetEmail }
+    methods:  [POST]
+
+admin_user_send_emailverify_email:
+    pattern:  /user/{id}/send_emailverify_email
+    defaults: { _controller: TopxiaAdminBundle:User:sendEmailVerifyEmail }
+    methods:  [POST]
+
+admin_user_level:
+    pattern: /userlevel
+    defaults: { _controller: TopxiaAdminBundle:Userlevel:index }
+
+admin_user_level_create:
+    pattern: /userlevel/create
+    defaults: { _controller: TopxiaAdminBundle:Userlevel:create }
+
+admin_user_level_update:
+    pattern: /userlevel/{id}/update
+    defaults: { _controller: TopxiaAdminBundle:Userlevel:update }
+
+admin_user_level_delete:
+    pattern: /userlevel/{id}/delete
+    defaults: { _controller: TopxiaAdminBundle:Userlevel:delete }
+    methods: [POST]
+
+admin_user_level_checkname:
+    pattern: /userlevel/checkname
+    defaults: { _controller: TopxiaAdminBundle:Userlevel:checkname }
+
+admin_user_level_sort:
+    pattern: /userlevel/sort
+    defaults: { _controller: TopxiaAdminBundle:Userlevel:sort }
+
+admin_comment:
+    pattern:  /comment
+    defaults: { _controller: TopxiaAdminBundle:Comment:index }
+
+admin_comment_delete:
+    pattern:  /comment/{id}/delete
+    defaults: { _controller: TopxiaAdminBundle:Comment:delete }
+    methods: [POST]
+
+admin_statistic:
+    pattern: /statistic
+    defaults: { _controller: TopxiaAdminBundle:Statistic:index }
+
+admin_navigation:
+    pattern:  /navigation
+    defaults: { _controller: TopxiaAdminBundle:Navigation:index }
+
+admin_navigation_create:
+    pattern:  /navigation/create
+    defaults: { _controller: TopxiaAdminBundle:Navigation:create }
+
+admin_navigation_update:
+    pattern:  /navigation/{id}/update
+    defaults: { _controller: TopxiaAdminBundle:Navigation:update }
+
+admin_navigation_delete:
+    pattern:  /navigation/{id}/delete
+    defaults: { _controller: TopxiaAdminBundle:Navigation:delete }
+    methods: [POST]
+
+admin_review:
+    pattern:  /review
+    defaults: { _controller: TopxiaAdminBundle:Review:index }
+
+admin_review_delete:
+    pattern: /review/{id}/delete
+    defaults: {_controller: TopxiaAdminBundle:Review:delete }
+    methods: [POST]
+
+admin_review_batch_delete:
+    pattern: /review/batch_delete
+    defaults: {_controller: TopxiaAdminBundle:Review:batchDelete }
+    methods: [POST]
+
+admin_note:
+    pattern: /note
+    defaults: { _controller: TopxiaAdminBundle:CourseNote:index }
+
+admin_note_delete:
+    pattern: /note/{id}/delete
+    defaults: { _controller: TopxiaAdminBundle:CourseNote:delete }
+    methods: [POST]
+
+admin_note_batch_delete:
+    pattern: /note/batch_delete
+    defaults: { _controller: TopxiaAdminBundle:CourseNote:batchDelete }
+    methods: [POST]
+
+admin_course:
+    pattern:  /course
+    defaults: { _controller: TopxiaAdminBundle:Course:index }
+
+admin_course_delete:
+    pattern:  /course/{id}/delete
+    defaults: { _controller: TopxiaAdminBundle:Course:delete }
+    methods: [POST]
+
+admin_course_publish:
+    pattern: /course/{id}/publish
+    defaults: { _controller: TopxiaAdminBundle:Course:publish }
+    methods: [POST]
+
+admin_course_close:
+    pattern: /course/{id}/close
+    defaults: { _controller: TopxiaAdminBundle:Course:close }
+    methods: [POST]
+
+admin_course_recommend:
+    pattern: /course/{id}/recommend
+    defaults: { _controller: TopxiaAdminBundle:Course:recommend }
+    methods: [POST]
+
+admin_course_cancel_recommend:
+    pattern: /course/{id}/recommend/cancel
+    defaults: { _controller: TopxiaAdminBundle:Course:cancelRecommend }
+    methods: [POST]
+
+admin_course_category:
+    pattern: /course/category
+    defaults: { _controller: TopxiaAdminBundle:Course:category }
+
+admin_course_disk:
+    pattern: /course/disk
+    defaults: { _controller: TopxiaAdminBundle:CourseDisk:index }
+
+admin_course_disk_delete:
+    pattern: /disk/{id}/delete
+    defaults: { _controller: TopxiaAdminBundle:CourseDisk:delete }
+    methods: [POST]
+
+admin_course_disk_batch_delete:
+    pattern: /disk/batch_delete
+    defaults: { _controller: TopxiaAdminBundle:CourseDisk:batchDelete }
+    methods: [POST]
+
+admin_course_order_manage:
+    pattern: /course/order/manage
+    defaults: { _controller: TopxiaAdminBundle:CourseOrder:manage }
+
+admin_course_order_detail:
+    pattern: /course/order/{id}/detail
+    defaults: { _controller: TopxiaAdminBundle:CourseOrder:detail }
+
+admin_order_refunds:
+    pattern: /order/refunds
+    defaults: { _controller: TopxiaAdminBundle:CourseOrder:refunds }
+
+admin_order_cancel_refund:
+    pattern: /order/{id}/cancel_refund
+    defaults: { _controller: TopxiaAdminBundle:CourseOrder:cancelRefund }
+    methods: [POST]
+
+admin_order_audit_refund:
+    pattern: /order/{id}/audit_refund
+    defaults: { _controller: TopxiaAdminBundle:CourseOrder:auditRefund }
+
+admin_setting_site:
+    pattern:  /setting/site
+    defaults: { _controller: TopxiaAdminBundle:Setting:site }
+
+admin_setting_logo_upload:
+    pattern:  /setting/logo/upload
+    defaults: { _controller: TopxiaAdminBundle:Setting:logoUpload }
+    methods: [POST]
+
+admin_setting_logo_remove:
+    pattern:  /setting/logo/remove
+    defaults: { _controller: TopxiaAdminBundle:Setting:logoRemove }
+    methods: [POST]
+
+admin_setting_favicon_upload:
+    pattern: /setting/favicon/upload
+    defaults: { _controller: TopxiaAdminBundle:Setting:faviconUpload }
+    methods: [POST]
+
+admin_setting_favicon_remove:
+    pattern: /setting/favicon/remove
+    defaults: { _controller: TopxiaAdminBundle:Setting:faviconRemove }
+    methods: [POST]
+
+admin_setting_auth:
+    pattern:  /setting/auth
+    defaults: { _controller: TopxiaAdminBundle:Setting:auth }
+
+admin_setting_mailer:
+    pattern:  /setting/mailer
+    defaults: { _controller: TopxiaAdminBundle:Setting:mailer }
+
+admin_setting_login_bind:
+    pattern:  /setting/login-connect
+    defaults: { _controller: TopxiaAdminBundle:Setting:loginConnect }
+
+admin_setting_payment:
+    pattern:  /setting/payment
+    defaults: { _controller: TopxiaAdminBundle:Setting:payment }
+
+admin_setting_storage:
+    pattern:  /setting/storage
+    defaults: { _controller: TopxiaAdminBundle:Setting:storage }
+
+admin_setting_refund:
+    pattern:  /setting/refund
+    defaults: { _controller: TopxiaAdminBundle:Setting:refund }
+
+admin_setting_ip_blacklist:
+    pattern:  /setting/ip-blacklist
+    defaults: { _controller: TopxiaAdminBundle:Setting:ipBlacklist }
+
+admin_setting_theme:
+    pattern:  /setting/theme
+    defaults: { _controller: TopxiaAdminBundle:Theme:index }
+
+admin_setting_theme_change:
+    pattern:  /setting/theme/change
+    defaults: { _controller: TopxiaAdminBundle:Theme:change }
+    methods:  [POST]
+
+admin_setting_user_center:
+    pattern:  /setting/user-center
+    defaults: { _controller: TopxiaAdminBundle:Setting:userCenter }
+
+admin_setting_course_setting:
+    pattern:  /setting/course-setting
+    defaults: { _controller: TopxiaAdminBundle:Setting:courseSetting }
+
+admin_setting_admin_sync:
+    pattern:  /setting/admin_sync
+    defaults: { _controller: TopxiaAdminBundle:Setting:adminSync }
+
+admin_optimize:
+    pattern:  /optimize
+    defaults: { _controller: TopxiaAdminBundle:Optimize:index }
+
+admin_optimize_remove_cache:
+    pattern:  /optimize/remove-cache
+    defaults: { _controller: TopxiaAdminBundle:Optimize:removeCache }
+    methods: [POST]
+
+admin_optimize_remove_tmp:
+    pattern:  /optimize/remove-tmp
+    defaults: { _controller: TopxiaAdminBundle:Optimize:removeTemp }
+    methods: [POST]
+
+admin_optimize_remove_backup:
+    pattern:  /optimize/remove-backup
+    defaults: { _controller: TopxiaAdminBundle:Optimize:removeBackup }
+    methods: [POST]
+
+admin_optimize_backupdb:
+    pattern:  /optimize/backupdb
+    defaults: { _controller: TopxiaAdminBundle:Optimize:backupdb }
+    methods: [POST]
+
+admin_optimize_remove_upload_files:
+    pattern:  /optimize/remove-unusedfiles
+    defaults: { _controller: TopxiaAdminBundle:Optimize:removeUnusedFiles }
+    methods: [POST]
+
+admin_logs:
+    pattern:  /logs
+    defaults: { _controller: TopxiaAdminBundle:Log:index }
+
+admin_cloud_bill:
+    pattern:  /cloud/bill
+    defaults: { _controller: TopxiaAdminBundle:Cloud:bill }
+
+admin_customer_service:
+    pattern: /customer/service
+    defaults: { _controller: TopxiaAdminBundle:Setting:customerService }
+
+admin_upgrade:
+    pattern:  /upgrade
+    defaults: { _controller: TopxiaAdminBundle:Upgrade:index }
+
+admin_upgrade_trigger_update_modal:
+    pattern:  /upgrade/trigger/update/{id}/modal
+    defaults: { _controller: TopxiaAdminBundle:Upgrade:triggerUpdateModal }
+
+admin_upgrade_check_environment:
+    pattern: /upgrade/check/environment/{id}
+    defaults: { _controller: TopxiaAdminBundle:Upgrade:checkEnvironment }
+    methods: [POST]
+
+admin_upgrade_has_last_error:
+    pattern: /upgrade/{id}/has/last/error
+    defaults: { _controller: TopxiaAdminBundle:Upgrade:hasLastError }
+    methods: [POST]
+
+admin_upgrade_check_depends:
+    pattern: /upgrade/{id}/check/depends
+    defaults: { _controller: TopxiaAdminBundle:Upgrade:checkDepends }
+    methods: [POST]
+
+admin_upgrade_download_and_extract:
+    pattern: /upgrade/{id}/download/extract
+    defaults: { _controller: TopxiaAdminBundle:Upgrade:downloadAndExtract }
+    methods: [POST]
+
+admin_upgrade_backup_system:
+    pattern: /upgrade/{id}/backup/system
+    defaults: { _controller: TopxiaAdminBundle:Upgrade:backupSystem }
+    methods: [POST]
+
+admin_upgrade_begin_upgrade:
+    pattern: /upgrade/{id}/begin/upgrade
+    defaults: { _controller: TopxiaAdminBundle:Upgrade:beginUpgrade }
+    methods: [POST]
+
+admin_upgrade_logs:
+    pattern:  /upgrade/logs
+    defaults: { _controller: TopxiaAdminBundle:Upgrade:logs }
+
+admin_upgrade_check:
+    pattern:  /upgrade/check
+    defaults: { _controller: TopxiaAdminBundle:Upgrade:check }
+
+admin_upgrade_check_count:
+    pattern:  /check-upgrade-count
+    defaults: { _controller: TopxiaAdminBundle:Upgrade:checkCount }
+
+admin_category:
+    pattern:  /category
+    defaults: { _controller: TopxiaAdminBundle:Category:index }
+
+admin_category_create:
+    pattern:  /category/create
+    defaults: { _controller: TopxiaAdminBundle:Category:create }
+
+admin_category_checkcode:
+    pattern:  /category/checkcode
+    defaults: { _controller: TopxiaAdminBundle:Category:checkCode }
+
+admin_category_edit:
+    pattern:  /category/{id}/edit
+    defaults: { _controller: TopxiaAdminBundle:Category:edit }
+
+admin_category_delete:
+    pattern:  /category/{id}/delete
+    defaults: { _controller: TopxiaAdminBundle:Category:delete }
+    methods: [POST]
+
+admin_file:
+    pattern:  /file
+    defaults: { _controller: TopxiaAdminBundle:File:index }
+
+admin_file_delete:
+    pattern:  /file/{id}/delete
+    defaults: { _controller: TopxiaAdminBundle:File:delete }
+    methods: [POST]
+
+admin_message:
+    pattern: /message
+    defaults: { _controller: TopxiaAdminBundle:Message:index }
+
+admin_message_delete_messages:
+    pattern: /delete/choosed/messages
+    defaults: {_controller: TopxiaAdminBundle:Message:deleteChoosedMessages }
+    methods: [POST]
+
+admin_login_record:
+    pattern: /login_record
+    defaults: { _controller: TopxiaAdminBundle:LoginRecord:index }
+
+admin_login_record_details:
+    pattern: /login_record/{id}/details
+    defaults: { _controller: TopxiaAdminBundle:LoginRecord:showUserLoginRecord }
+
+
+admin_thread:
+    pattern:  /thread
+    defaults: { _controller: TopxiaAdminBundle:CourseThread:index }
+
+admin_thread_delete:
+    pattern: /thread/{id}/delete
+    defaults: {_controller: TopxiaAdminBundle:CourseThread:delete }
+    methods: [POST]
+
+admin_thread_batch_delete:
+    pattern: /thread/batch_delete
+    defaults: {_controller: TopxiaAdminBundle:CourseThread:batchDelete }
+    methods: [POST]
+
+admin_money_card:
+    pattern: /money_card
+    defaults: {_controller: TopxiaAdminBundle:MoneyCard:index }
+
+admin_money_card_batch:
+    pattern: /money_card/batch
+    defaults: {_controller: TopxiaAdminBundle:MoneyCard:indexBatch }
+
+admin_money_card_get_password:
+    pattern: /money_card/get_password/{id}
+    defaults: {_controller: TopxiaAdminBundle:MoneyCard:getPassword }
+
+admin_money_card_create:
+    pattern: /money_card/create
+    defaults: {_controller: TopxiaAdminBundle:MoneyCard:create }
+
+admin_money_card_lock:
+    pattern: /money_card/lock/{id}
+    defaults: {_controller: TopxiaAdminBundle:MoneyCard:lock }
+
+admin_money_card_unlock:
+    pattern: /money_card/unlock/{id}
+    defaults: {_controller: TopxiaAdminBundle:MoneyCard:unlock }
+
+admin_money_card_delete:
+    pattern: /money_card/delete/{id}
+    defaults: {_controller: TopxiaAdminBundle:MoneyCard:delete }
+
+admin_money_card_lock_batch:
+    pattern: /money_card/batch/lock/{id}
+    defaults: {_controller: TopxiaAdminBundle:MoneyCard:lockBatch }
+
+admin_money_card_unlock_batch:
+    pattern: /money_card/batch/unlock/{id}
+    defaults: {_controller: TopxiaAdminBundle:MoneyCard:unlockBatch }
+
+admin_money_card_batch_delete:
+    pattern: /money_card/batch/delete/{id}
+    defaults: {_controller: TopxiaAdminBundle:MoneyCard:deleteBatch }
+
+admin_money_card_batch_card_prefix_check:
+    pattern: /money_card/card_prefix/check
+    defaults: {_controller: TopxiaAdminBundle:MoneyCard:cardPrefixCheck }
+
+admin_money_card_batch_export_csv:
+    pattern: /money_card/batch/export/csv/{batchId}
+    defaults: {_controller: TopxiaAdminBundle:MoneyCard:exportCsv }
+
+admin_question:
+    pattern:  /question/{postStatus}
+    defaults: { _controller: TopxiaAdminBundle:CourseQuestion:index }
+
+
+admin_approval_approving:
+    pattern:  approvals/approving
+    defaults: { _controller: TopxiaAdminBundle:UserApproval:approving }
+
+admin_approval_approved:
+    pattern:  approvals/approved
+    defaults: { _controller: TopxiaAdminBundle:UserApproval:approved }
+
+admin_approval_approve:
+    pattern:  approvals/{id}/approve
+    defaults: { _controller: TopxiaAdminBundle:UserApproval:approve }
+
+admin_approval_cancel:
+    pattern:  approvals/{id}/cancel
+    defaults: { _controller: TopxiaAdminBundle:UserApproval:cancel }
+    methods:  [POST]
+
+show_idcard:
+    pattern:   approvals/idcard/show/{userId}/{type}
+    defaults: { _controller: TopxiaAdminBundle:UserApproval:showIdcard }

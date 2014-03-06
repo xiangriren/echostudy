@@ -1,0 +1,26 @@
+{% if courses %}
+	<table class="table table-condensed table-striped table-hover">
+	  <thead>
+	    <tr>
+	      <th>课程名称</th>
+	      <th>新增学生人数</th>
+	      <th>总学生人数</th>
+	      <th>新增收入</th>
+	    </tr>
+	  </thead>
+		<tbody>
+			{% for course in courses %}
+				<tr>
+					<td>
+						<a href="{{ path('course_show', {id: course.id}) }}" target="_blank">{{ course.title }}</a>
+					</td>
+					<td>{{ course['addedStudentNum'] }} 人 </td>
+					<td>{{ course['studentNum'] }} 人</td>
+					<td class="money-text">{{ course['addedMoney'] }} 元 </td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% else %}
+  <div class="empty">暂无受欢迎课程</div>
+{% endif %}
